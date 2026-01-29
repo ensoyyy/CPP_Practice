@@ -58,7 +58,7 @@ int main(){
         }      
         std::cout << "Distance to next point: " << points.at(i).distanceTo(points.at(i+1)) << "\n";
     }
-
+    
     Point p;
     p.setX(10);
     p.setY(20);
