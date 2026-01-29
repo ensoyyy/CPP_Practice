@@ -49,9 +49,9 @@ int main(){
     };
 
     Point::printPoints(points);
-    /*
+    
     for(int i = 0; i < points.size(); ++i){
-        points.at(i).printPoint();
+        points.at(i).print();
         if(i == 4) {
             std::cout << "No next point\n";
             break;
@@ -64,7 +64,7 @@ int main(){
     p.setY(20);
 
     std:: cout << p.getX() << ", " << p.getY() << "\n";
-    */
+    
 
     return 0;
 }
