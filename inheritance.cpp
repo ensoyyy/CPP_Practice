@@ -73,6 +73,6 @@ int main(){
     for(auto p : points){
         p->print();
     }
-    
+
     return 0;
 }
