@@ -3,7 +3,7 @@
 #include <cmath>
 
 class Point{
-    private:
+    protected:
         int x;
         int y;
     public:
@@ -13,7 +13,7 @@ class Point{
         int getY() const { return y;}
         void setY(int newY) { y = newY;}
 
-        void print() const{
+        virtual void print() const{
                 std::cout << "(" << x << ", " << y << ")\n";
             }
 
@@ -36,6 +36,18 @@ class Point{
 
 };
 
+class XYZPoint : public Point{
+    private:
+        int z;
+    public:
+        XYZPoint(int x, int y, int z): Point(x,y), z(z){}
+        void print() const override{
+            std::cout << "(" << x << ", " << y << ", " << z << ")\n";
+            
+        }
+
+};
+
 class City{
     private:
         Point location;
@@ -54,18 +66,13 @@ class City{
 };
 
 int main(){
-   
-    City city = City(Point(10,20), "Metropolis", 1000000);
-    city.setLocation(Point(15,25));
-    city.setName("Gotham");
-    city.setPopulation(1500000);
-    std::cout << "City Location: ";
-    city.getLocation().print();
-    std::cout << "City Name: ";
-    std::cout << city.getName() << "\n";
-    std::cout << "City Population: ";
-    std::cout << city.getPopulation() << "\n";
-
+    XYZPoint p1 = XYZPoint(10,20,30);
+    Point p2 = Point(40,50);
+    std::vector<Point*> points = {&p1, &p2};
+    
+    for(auto p : points){
+        p->print();
+    }
     
     return 0;
 }
